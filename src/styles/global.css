@@ -161,7 +161,61 @@ body.link-hover #cursor-trail { width: 50px; height: 50px; border-color: var(--t
 .bl { color: #c586c0; }
 
 /* ════ RESPONSIVE ════════════════════════════════════════════ */
+
+/* --- Hide custom cursor on touch devices --- */
+@media (hover: none), (pointer: coarse) {
+  #cursor, #cursor-trail { display: none !important; }
+  html, body, a, button, .bs-card, .pc, .tl-item, .sn-dot, .hdr-btn, .btn-g, .btn-s, .cl-btn, .contact-email-btn, #tinp { cursor: auto !important; }
+}
+
 @media (max-width: 768px) {
-  #header { padding: 16px 20px; }
+  #header { padding: 14px 16px; background: rgba(10, 14, 23, 0.92); backdrop-filter: blur(10px); }
+  .logo { font-size: 13px; }
+  .hdr-btn { padding: 6px 12px; font-size: 10px; }
+
   .sec { padding: 0 5vw !important; }
+
+  /* Side nav: bottom horizontal bar on mobile */
+  #side-nav {
+    top: auto; right: auto; bottom: 0;
+    left: 0; right: 0; width: 100%;
+    transform: none;
+    flex-direction: row; gap: 18px;
+    justify-content: center;
+    padding: 14px 0;
+    background: rgba(10, 14, 23, 0.92);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid var(--border);
+  }
+  .sn-dot { width: 8px; height: 8px; }
+  .sn-dot::before { display: none; }
+
+  /* Section counter: hide on mobile to avoid overlap with bottom nav */
+  #sec-counter { display: none; }
+
+  /* Allow sections to scroll vertically on mobile when content overflows */
+  .sec { overflow-y: auto; -webkit-overflow-scrolling: touch; }
+
+  /* Scroll cue: smaller on mobile */
+  .scroll-cue { bottom: 50px; font-size: 8px; }
+  .scroll-cue .line { height: 24px; }
+
+  /* Shared section titles */
+  .sec-title { font-size: clamp(22px, 6vw, 32px); margin-bottom: 14px; }
+  .sec-line { margin-bottom: 18px; }
+
+  /* Buttons */
+  .btn-g, .btn-s { padding: 10px 18px; font-size: 11px; }
+
+  /* Terminal modal */
+  .t-win { width: 95vw; }
+  .t-out { height: 240px; padding: 14px; font-size: 11px; }
+  .t-inp-row { padding: 10px 14px; }
+}
+
+/* Extra small phones */
+@media (max-width: 420px) {
+  #header { padding: 12px 12px; }
+  .sec { padding: 0 4vw !important; }
+  .sec-title { font-size: clamp(20px, 5.5vw, 28px); }
 }

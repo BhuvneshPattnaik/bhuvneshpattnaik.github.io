@@ -1,4 +1,7 @@
 export function initCursor() {
+  // Skip custom cursor on touch devices
+  if ('ontouchstart' in window || navigator.maxTouchPoints > 0) return;
+
   const cur = document.getElementById('cursor');
   const trail = document.getElementById('cursor-trail');
   let cx = 0, cy = 0, tx = 0, ty = 0;
