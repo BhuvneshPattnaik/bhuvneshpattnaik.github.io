@@ -1,0 +1,26 @@
+---
+import { TIMELINE } from '../../data/experience.js';
+---
+<section class="sec" id="s4">
+  <div class="exp-layout">
+    <div>
+      <div class="sec-eyebrow">Experience</div>
+      <h2 class="sec-title" style="margin-bottom:28px">Work History</h2>
+
+      <div class="exp-timeline" id="exp-tl">
+        {TIMELINE.map((item, i) => (
+          <div class={`tl-item${i === 0 ? ' sel' : ''}`} data-i={i}>
+            <div class="tl-dot"></div>
+            <div class="tl-title">{item.title}</div>
+            <div class="tl-co">{item.co}</div>
+            <div class="tl-period">{item.period}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="exp-detail" id="exp-detail">
+      <!-- filled by experience.js -->
+    </div>
+  </div>
+</section>

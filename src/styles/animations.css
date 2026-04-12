@@ -1,0 +1,157 @@
+/* ════ GLITCH ════════════════════════════════════════════════ */
+.glitch { position: relative; display: inline-block; }
+.glitch::before, .glitch::after {
+  content: attr(data-t); position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+}
+.glitch::before {
+  color: var(--pink); animation: gl1 4s infinite;
+  clip-path: polygon(0 20%, 100% 20%, 100% 40%, 0 40%);
+}
+.glitch::after {
+  color: var(--blue); animation: gl2 4s infinite;
+  clip-path: polygon(0 60%, 100% 60%, 100% 80%, 0 80%);
+}
+@keyframes gl1 {
+  0%, 92% { transform: none; opacity: 0; }
+  93% { transform: translate(-3px, 1px); opacity: 0.8; }
+  100% { transform: none; opacity: 0; }
+}
+@keyframes gl2 {
+  0%, 94% { transform: none; opacity: 0; }
+  95% { transform: translate(3px, -1px); opacity: 0.8; }
+  100% { transform: none; opacity: 0; }
+}
+
+/* ════ CARET BLINK ═══════════════════════════════════════════ */
+@keyframes blink { 50% { opacity: 0; } }
+.caret {
+  display: inline-block; width: 2px; height: 1.1em;
+  background: var(--teal); vertical-align: middle;
+  animation: blink 0.6s step-end infinite;
+}
+
+/* ════ SCROLL CUE ════════════════════════════════════════════ */
+@keyframes sc {
+  0% { transform: scaleY(0); transform-origin: top; }
+  50% { transform: scaleY(1); transform-origin: top; }
+  51% { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+.scroll-cue {
+  position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  font-family: var(--mono); font-size: 9.5px; color: var(--muted); letter-spacing: 2px;
+}
+.scroll-cue .line {
+  width: 1px; height: 40px;
+  background: linear-gradient(var(--teal), transparent);
+  animation: sc 1.4s ease-in-out infinite;
+}
+
+/* ════ ORBITAL RINGS (Contact) ══════════════════════════════ */
+@keyframes spin { to { transform: translate(-50%, -50%) rotate(360deg); } }
+
+/* ════ T1: 3D FOLD (S1→S2) ══════════════════════════════════ */
+@keyframes fold-exit {
+  0% { transform: perspective(1400px) rotateX(0) translateZ(0); opacity: 1; }
+  100% { transform: perspective(1400px) rotateX(20deg) translateY(-80px) scale(0.94); opacity: 0; filter: blur(3px); }
+}
+@keyframes fold-enter {
+  0% { transform: perspective(1400px) rotateX(-12deg) translateY(50px) scale(0.97); opacity: 0; }
+  100% { transform: none; opacity: 1; }
+}
+.fold-out  { animation: fold-exit  0.85s cubic-bezier(0.77,0,0.175,1) forwards; }
+.fold-in   { animation: fold-enter 0.85s cubic-bezier(0.77,0,0.175,1) forwards; }
+
+/* ════ T2: CUBE ROTATE Y (S2→S3) ════════════════════════════ */
+@keyframes cube-exit-y {
+  0% { transform: perspective(1200px) rotateY(0) translateZ(0); opacity: 1; }
+  100% { transform: perspective(1200px) rotateY(-90deg) translateZ(-200px); opacity: 0; }
+}
+@keyframes cube-enter-y {
+  0% { transform: perspective(1200px) rotateY(90deg) translateZ(-200px); opacity: 0; }
+  100% { transform: none; opacity: 1; }
+}
+@keyframes cube-exit-y-r {
+  0% { transform: perspective(1200px) rotateY(0) translateZ(0); opacity: 1; }
+  100% { transform: perspective(1200px) rotateY(90deg) translateZ(-200px); opacity: 0; }
+}
+@keyframes cube-enter-y-r {
+  0% { transform: perspective(1200px) rotateY(-90deg) translateZ(-200px); opacity: 0; }
+  100% { transform: none; opacity: 1; }
+}
+.cube-y-out   { animation: cube-exit-y   0.9s cubic-bezier(0.77,0,0.175,1) forwards; }
+.cube-y-in    { animation: cube-enter-y  0.9s cubic-bezier(0.77,0,0.175,1) forwards; }
+.cube-y-out-r { animation: cube-exit-y-r 0.9s cubic-bezier(0.77,0,0.175,1) forwards; }
+.cube-y-in-r  { animation: cube-enter-y-r 0.9s cubic-bezier(0.77,0,0.175,1) forwards; }
+
+/* ════ T3: DIAGONAL WIPE (S3→S4) ════════════════════════════ */
+@keyframes diag-exit {
+  0% { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+  100% { clip-path: polygon(0 0, 0 0, 0 100%, 0 100%); }
+}
+@keyframes diag-enter {
+  0% { clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%); opacity: 1; }
+  100% { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); opacity: 1; }
+}
+@keyframes diag-exit-r {
+  0% { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+  100% { clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%); }
+}
+@keyframes diag-enter-r {
+  0% { clip-path: polygon(0 0, 0 0, 0 100%, 0 100%); opacity: 1; }
+  100% { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); opacity: 1; }
+}
+.diag-out   { animation: diag-exit    0.85s cubic-bezier(0.77,0,0.175,1) forwards; }
+.diag-in    { animation: diag-enter   0.85s cubic-bezier(0.77,0,0.175,1) 0.1s forwards; opacity: 1; }
+.diag-out-r { animation: diag-exit-r  0.85s cubic-bezier(0.77,0,0.175,1) forwards; }
+.diag-in-r  { animation: diag-enter-r 0.85s cubic-bezier(0.77,0,0.175,1) 0.1s forwards; opacity: 1; }
+
+/* ════ T4: ZOOM THROUGH (S4→S5) ═════════════════════════════ */
+@keyframes zoom-exit {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(2.5); opacity: 0; filter: blur(8px); }
+}
+@keyframes zoom-enter {
+  0% { transform: scale(0.4); opacity: 0; filter: blur(4px); }
+  100% { transform: scale(1); opacity: 1; filter: none; }
+}
+@keyframes zoom-exit-r {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(0.4); opacity: 0; filter: blur(8px); }
+}
+@keyframes zoom-enter-r {
+  0% { transform: scale(2.5); opacity: 0; filter: blur(4px); }
+  100% { transform: scale(1); opacity: 1; filter: none; }
+}
+.zoom-out   { animation: zoom-exit   0.8s cubic-bezier(0.77,0,0.175,1) forwards; }
+.zoom-in    { animation: zoom-enter  0.8s cubic-bezier(0.16,1,0.3,1) 0.1s forwards; }
+.zoom-out-r { animation: zoom-exit-r 0.8s cubic-bezier(0.77,0,0.175,1) forwards; }
+.zoom-in-r  { animation: zoom-enter-r 0.8s cubic-bezier(0.16,1,0.3,1) 0.1s forwards; }
+
+/* ════ T5: FLIP X (S5→S6) ═══════════════════════════════════ */
+@keyframes flip-exit {
+  0% { transform: perspective(1000px) rotateX(0); opacity: 1; }
+  100% { transform: perspective(1000px) rotateX(-90deg); opacity: 0; }
+}
+@keyframes flip-enter {
+  0% { transform: perspective(1000px) rotateX(90deg); opacity: 0; }
+  100% { transform: perspective(1000px) rotateX(0); opacity: 1; }
+}
+@keyframes flip-exit-r {
+  0% { transform: perspective(1000px) rotateX(0); opacity: 1; }
+  100% { transform: perspective(1000px) rotateX(90deg); opacity: 0; }
+}
+@keyframes flip-enter-r {
+  0% { transform: perspective(1000px) rotateX(-90deg); opacity: 0; }
+  100% { transform: perspective(1000px) rotateX(0); opacity: 1; }
+}
+.flip-out   { animation: flip-exit   0.85s cubic-bezier(0.77,0,0.175,1) forwards; }
+.flip-in    { animation: flip-enter  0.85s cubic-bezier(0.16,1,0.3,1) 0.1s forwards; }
+.flip-out-r { animation: flip-exit-r 0.85s cubic-bezier(0.77,0,0.175,1) forwards; }
+.flip-in-r  { animation: flip-enter-r 0.85s cubic-bezier(0.16,1,0.3,1) 0.1s forwards; }
+
+/* ════ TRANSITION OVERLAY ════════════════════════════════════ */
+#trans-overlay { position: fixed; inset: 0; z-index: 500; pointer-events: none; }
+.overlay-strip { position: absolute; background: var(--teal); transition: none; }

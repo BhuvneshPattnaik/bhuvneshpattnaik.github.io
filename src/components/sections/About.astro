@@ -1,0 +1,44 @@
+---
+const stats = [
+  { to: 8,  suf: '+',         label: 'Years of Experience' },
+  { to: 15, suf: 'K+',        label: 'Orders Scaled / Day' },
+  { to: 9,  suf: '+',         label: 'Engineers Led' },
+  { to: 3,  suf: '×',         label: 'Business Growth (YoY)' },
+  { to: 2,  suf: 'K+ users at launch', label: 'Platform Launch Impact', wide: true },
+];
+---
+<section class="sec" id="s2">
+  <div class="about-layout">
+    <div class="big-stats">
+      {stats.map((s) => (
+        <div class={`bs-card${s.wide ? ' wide' : ''}`}>
+          <div class="bs-num counter" data-to={s.to} data-suf={s.suf}>0</div>
+          <div class="bs-lbl">{s.label}</div>
+        </div>
+      ))}
+    </div>
+
+    <div class="about-text-block">
+      <div class="sec-eyebrow">About</div>
+      <h2 class="sec-title">Who I Am</h2>
+      <div class="sec-line"></div>
+      <p class="about-p">
+        I'm a <strong>Senior Full Stack Engineer and Engineering Leader</strong>
+        with <em>8+ years</em> of experience building and scaling platforms
+        that handle real traffic at real scale.
+      </p>
+      <p class="about-p">
+        I've taken platforms from <strong>zero to launch</strong>, led
+        cross-functional teams of <strong>9+ engineers</strong>, and delivered
+        systems that process <strong>15,000+ orders per day</strong>. I drove
+        <strong>3× business growth</strong> post-COVID through pure engineering excellence.
+      </p>
+      <p class="about-p">
+        What sets me apart: I'm deeply embedded in
+        <strong>AI-assisted development</strong> — Claude AI and Cursor AI are
+        genuine multipliers in my workflow, not novelties. Based in
+        <strong>Glasgow, UK 🇬🇧</strong> — no sponsorship required.
+      </p>
+    </div>
+  </div>
+</section>

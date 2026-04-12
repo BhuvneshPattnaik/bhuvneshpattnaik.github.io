@@ -1,0 +1,64 @@
+---
+---
+<section class="sec active" id="s1">
+  <div class="hero-layout">
+    <div>
+      <div class="h-label">👋 Hello, World — I'm</div>
+      <div class="h-name">
+        <span class="n1 glitch" data-t="Bhuvnesh">Bhuvnesh</span>
+        <span class="n2 glitch" data-t="Pattnaik">Pattnaik</span>
+      </div>
+      <div class="h-role">
+        <span class="typed-wrap">
+          <span id="typed"></span><span class="caret"></span>
+        </span>
+      </div>
+      <div class="h-chips">
+        <span class="chip lit">🇬🇧 Glasgow, UK</span>
+        <span class="chip lit">✅ No Sponsorship</span>
+        <span class="chip">Java · Node.js · React</span>
+        <span class="chip">AWS · Docker · CI/CD</span>
+        <span class="chip">★ Claude AI · Cursor AI</span>
+        <span class="chip">8+ Years Experience</span>
+      </div>
+      <div class="h-actions">
+        <button class="btn-g" id="hero-exp-btn">▸ View Experience</button>
+        <button class="btn-s" id="hero-contact-btn">✉ Get In Touch</button>
+      </div>
+    </div>
+
+    <div class="h-term">
+      <div class="t-bar">
+        <div class="tbd" style="background:#ff5f56"></div>
+        <div class="tbd" style="background:#ffbd2e"></div>
+        <div class="tbd" style="background:#28c840"></div>
+        <span style="font-family:var(--mono);font-size:11px;color:var(--muted);margin-left:8px">bhuvnesh.ts</span>
+      </div>
+      <div class="t-body">
+        <span class="tl"><span class="kw">const</span> <span class="vr">me</span> = &#123;</span>
+        <span class="tl">  <span class="vr">name</span>: <span class="st">"Bhuvnesh Pattnaik"</span>,</span>
+        <span class="tl">  <span class="vr">role</span>: <span class="st">"Engineer + Leader"</span>,</span>
+        <span class="tl">  <span class="vr">location</span>: <span class="st">"Glasgow, UK 🇬🇧"</span>,</span>
+        <span class="tl">  <span class="vr">yearsExp</span>: <span class="nm">8</span>,</span>
+        <span class="tl">  <span class="vr">teamLed</span>: <span class="nm">9</span><span class="cm">+</span>,</span>
+        <span class="tl">  <span class="vr">ordersScaled</span>: <span class="st">"15K+/day"</span>,</span>
+        <span class="tl">  <span class="vr">growth</span>: <span class="st">"3× YoY"</span>,</span>
+        <span class="tl">  <span class="vr">aiTools</span>: [<span class="st">"Claude"</span>,<span class="st">"Cursor"</span>],</span>
+        <span class="tl">  <span class="vr">sponsorship</span>: <span class="bl">false</span>, <span class="cm">// not needed</span></span>
+        <span class="tl">  <span class="vr">openToWork</span>: <span class="bl">true</span>,</span>
+        <span class="tl">&#125;;</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-cue">
+    SCROLL
+    <div class="line"></div>
+  </div>
+</section>
+
+<script>
+  import { goTo } from '../../scripts/navigation.js';
+  document.getElementById('hero-exp-btn')?.addEventListener('click', () => goTo(3));
+  document.getElementById('hero-contact-btn')?.addEventListener('click', () => goTo(5));
+</script>

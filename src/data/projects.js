@@ -1,0 +1,70 @@
+export const PROJECTS = [
+  {
+    id: 'shypmax',
+    featured: true,
+    ico: '🚢',
+    name: 'Shypmax-Club',
+    meta: 'Built from scratch · Apr 2022 – Sep 2023',
+    desc: 'E-commerce + C2C shipment delivery platform I designed, architected and launched from zero. Reported directly to CTO throughout.',
+    tags: [
+      { label: 'Node.js' },
+      { label: 'React Native' },
+      { label: 'MySQL' },
+      { label: 'Firebase' },
+      { label: 'AWS' },
+      { label: 'Kafka' },
+    ],
+    impact: [
+      '2,000+ active users',
+      'App Store + Play Store',
+      'Team of 9+ led',
+      '3× business growth',
+    ],
+  },
+  {
+    id: 'fintrack',
+    ico: '⚡',
+    name: 'FinTrack',
+    meta: 'Built in 3 days · AI-assisted',
+    desc: 'Personal finance management — income, expenses, budgets, goals & AI insights.',
+    tags: [
+      { label: 'Next.js' },
+      { label: 'Gemini AI', cls: 'y' },
+    ],
+    link: { href: 'https://fintrack.light2glow.com', label: '↗ Live' },
+  },
+  {
+    id: 'splitzy',
+    ico: '💸',
+    name: 'Splitzy',
+    meta: 'Built in 1 week · AI-assisted',
+    desc: 'Bill-splitting & expense tracking with real-time sync and smart settlements.',
+    tags: [
+      { label: 'Next.js' },
+      { label: 'Gemini AI', cls: 'y' },
+    ],
+    link: { href: 'http://splitzy.light2glow.com', label: '↗ Live' },
+  },
+  {
+    id: 'dieters',
+    ico: '🥗',
+    name: 'Dieters.fit',
+    meta: '2 years · Production',
+    desc: 'Dual-interface app for dieters and dieticians with RBAC and meal planning.',
+    tags: [
+      { label: 'Nest.js' },
+      { label: 'GCP' },
+    ],
+  },
+  {
+    id: 'novelacting',
+    ico: '📚',
+    name: 'NovelActing',
+    meta: '6 months · Android',
+    desc: 'Android novel reader with genre categories, offline mode and Firebase sync.',
+    tags: [
+      { label: 'Android' },
+      { label: 'Firebase' },
+    ],
+  },
+];

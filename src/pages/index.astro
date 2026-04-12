@@ -1,0 +1,77 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Loader from '../components/Loader.astro';
+import Header from '../components/Header.astro';
+import SideNav from '../components/SideNav.astro';
+import SectionCounter from '../components/SectionCounter.astro';
+import TerminalModal from '../components/TerminalModal.astro';
+import Hero from '../components/sections/Hero.astro';
+import About from '../components/sections/About.astro';
+import Skills from '../components/sections/Skills.astro';
+import Experience from '../components/sections/Experience.astro';
+import Projects from '../components/sections/Projects.astro';
+import Contact from '../components/sections/Contact.astro';
+---
+
+<Layout>
+  <!-- Loading screen -->
+  <Loader />
+
+  <!-- Particle background canvas -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- Custom cursor -->
+  <div id="cursor"></div>
+  <div id="cursor-trail"></div>
+
+  <!-- Transition overlay -->
+  <div id="trans-overlay"></div>
+
+  <!-- Persistent UI -->
+  <Header />
+  <SideNav />
+  <SectionCounter />
+
+  <!-- Sections -->
+  <Hero />
+  <About />
+  <Skills />
+  <Experience />
+  <Projects />
+  <Contact />
+
+  <!-- Terminal modal -->
+  <TerminalModal />
+</Layout>
+
+<script>
+  import { initLoader }    from '../scripts/loader.js';
+  import { initParticles } from '../scripts/particles.js';
+  import { initCursor }    from '../scripts/cursor.js';
+  import { startTyping, initScramble } from '../scripts/typing.js';
+  import { initNav }       from '../scripts/navigation.js';
+  import { initExperience, animateCounters, animateBars } from '../scripts/experience.js';
+  import { initTerminal }  from '../scripts/terminal.js';
+  import { initCards3D }   from '../scripts/cards3d.js';
+
+  // Boot order matters — particles and cursor first, then loader
+  initParticles();
+  initCursor();
+  initScramble();
+  initCards3D();
+  initExperience();
+  initTerminal();
+
+  // Section enter callbacks
+  initNav({
+    1: animateCounters,
+    2: animateBars,
+    3: () => {}, // experience already initialized
+  });
+
+  // Loader triggers typing + first bar animation
+  initLoader(() => {
+    startTyping();
+    animateBars();
+  });
+</script>

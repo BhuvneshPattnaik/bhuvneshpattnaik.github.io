@@ -1,0 +1,41 @@
+---
+import { PROJECTS } from '../../data/projects.js';
+---
+<section class="sec" id="s5">
+  <div class="proj-layout">
+    <div class="sec-eyebrow" style="margin-bottom:16px">Projects</div>
+    <h2 class="sec-title" style="margin-bottom:20px;font-size:clamp(24px,3vw,38px)">
+      Things I've Built
+    </h2>
+    <div class="sec-line" style="margin-bottom:24px"></div>
+
+    <div class="proj-grid-3d">
+      {PROJECTS.map((p) => (
+        <div class={`pc${p.featured ? ' featured' : ''}`}>
+          <div class="pc-ico">{p.ico}</div>
+          <div class="pc-name">{p.name}</div>
+          <div class="pc-meta">{p.meta}</div>
+          <div class="pc-desc">{p.desc}</div>
+
+          <div class="pc-tags">
+            {p.tags.map((tag) => (
+              <span class={`pc-tag${tag.cls ? ' ' + tag.cls : ''}`}>{tag.label}</span>
+            ))}
+          </div>
+
+          {p.link && (
+            <a href={p.link.href} target="_blank" class="pc-link">{p.link.label}</a>
+          )}
+
+          {p.impact && (
+            <div class="pc-impact">
+              {p.impact.map((imp) => (
+                <div class="pc-imp">{imp}</div>
+              ))}
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

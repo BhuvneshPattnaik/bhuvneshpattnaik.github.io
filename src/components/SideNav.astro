@@ -1,0 +1,12 @@
+---
+const sections = ['Hero', 'About', 'Skills', 'Experience', 'Projects', 'Contact'];
+---
+<div id="side-nav">
+  {sections.map((label, i) => (
+    <div
+      class={`sn-dot${i === 0 ? ' active' : ''}`}
+      data-i={i}
+      data-label={label}
+    />
+  ))}
+</div>

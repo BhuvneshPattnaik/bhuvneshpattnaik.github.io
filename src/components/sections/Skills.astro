@@ -1,0 +1,40 @@
+---
+import { SKILL_GROUPS, SKILL_BARS } from '../../data/skills.js';
+---
+<section class="sec" id="s3">
+  <div class="skills-layout">
+    <div class="skills-top">
+      <div class="sec-eyebrow">Skills</div>
+      <h2 class="sec-title">Tech Stack</h2>
+      <div class="sec-line"></div>
+    </div>
+
+    <div class="skill-constellation">
+      {SKILL_GROUPS.map((group) => (
+        <div class="sk-group">
+          <div class="sk-ico">{group.ico}</div>
+          <div class="sk-title">{group.title}</div>
+          <div class="sk-tags">
+            {group.tags.map((tag) => (
+              <span class={`sk-tag${tag.cls ? ' ' + tag.cls : ''}`}>{tag.label}</span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="skill-bars-row">
+      {SKILL_BARS.map((bar) => (
+        <div class="sbr">
+          <div class="sbl">
+            <span>{bar.label}</span>
+            <span>{bar.pct}%</span>
+          </div>
+          <div class="sbt">
+            <div class="sbf" data-w={bar.pct}></div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
