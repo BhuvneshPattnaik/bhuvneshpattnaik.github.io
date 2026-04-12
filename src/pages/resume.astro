@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Bhuvnesh Pattnaik — Resume</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+/* ── Reset ───────────────────────────────────────── */
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --dark:#1E2330;
+  --darker:#161920;
+  --teal:#4EC9B0;
+  --blue:#9CDCFE;
+  --yellow:#DCDCAA;
+  --white:#FFFFFF;
+  --muted:#8A9BB0;
+  --body:#2C3E50;
+  --mid:#546E7A;
+  --divider:#DEE4EA;
+  --sidebar-w:230px;
+}
+
+/* ── Layout ──────────────────────────────────────── */
+html,body{background:#f0f2f5;font-family:'Outfit',sans-serif;}
+
+.page{
+  width:210mm;
+  min-height:297mm;
+  margin:0 auto;
+  display:flex;
+  background:#fff;
+  position:relative;
+  page-break-after:always;
+}
+.page:last-child{page-break-after:auto;}
+
+/* ── Sidebar ─────────────────────────────────────── */
+.sidebar{
+  width:var(--sidebar-w);
+  min-height:100%;
+  background:var(--dark);
+  flex-shrink:0;
+  padding:20px 18px 20px 18px;
+  display:flex;
+  flex-direction:column;
+}
+
+.name-block{margin-bottom:10px;}
+.name-first{font-family:'JetBrains Mono',monospace;font-size:28px;font-weight:700;color:var(--teal);line-height:1.1;}
+.name-last{font-family:'JetBrains Mono',monospace;font-size:28px;font-weight:700;color:var(--white);line-height:1.1;margin-bottom:6px;}
+.name-title{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);line-height:1.5;}
+
+.s-section{margin-top:11px;}
+.s-heading{
+  font-family:'JetBrains Mono',monospace;
+  font-size:9px;font-weight:700;
+  color:var(--teal);letter-spacing:1.5px;
+  text-transform:uppercase;
+  border-bottom:1.5px solid var(--teal);
+  padding-bottom:4px;margin-bottom:8px;
+}
+
+.s-item{
+  font-family:'JetBrains Mono',monospace;
+  font-size:9.5px;color:var(--muted);
+  margin-bottom:3px;line-height:1.4;
+  display:flex;align-items:flex-start;gap:5px;
+}
+.s-item .arrow{color:var(--teal);flex-shrink:0;}
+.s-item .star{color:var(--yellow);flex-shrink:0;}
+.s-item .dot{color:var(--teal);flex-shrink:0;}
+
+.s-skill{
+  font-family:'JetBrains Mono',monospace;
+  font-size:9.5px;color:var(--blue);
+  margin-bottom:4px;line-height:1.4;
+}
+.s-skill.yellow{color:var(--yellow);}
+
+.s-badge{
+  display:inline-block;
+  background:#0D1A26;
+  border:1px solid #2A4A5A;
+  color:var(--blue);
+  font-family:'JetBrains Mono',monospace;
+  font-size:8px;padding:2px 6px;
+  border-radius:2px;margin:2px 2px 2px 0;
+}
+
+.stat-row{display:flex;align-items:baseline;gap:4px;margin-bottom:4px;}
+.stat-val{font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:700;color:var(--teal);}
+.stat-label{font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--muted);line-height:1.3;}
+
+.bar-row{margin-bottom:3px;}
+.bar-label{font-family:'JetBrains Mono',monospace;font-size:8.5px;color:var(--muted);margin-bottom:2px;display:flex;justify-content:space-between;}
+.bar-track{background:#0D1A26;border-radius:1px;height:3px;overflow:hidden;}
+.bar-fill{height:100%;background:var(--teal);border-radius:1px;}
+
+/* ── Main ────────────────────────────────────────── */
+.main{
+  flex:1;
+  padding:28px 28px 28px 26px;
+  min-height:100%;
+}
+
+.m-section{margin-bottom:20px;}
+.m-heading{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;font-weight:700;
+  color:var(--body);letter-spacing:1.5px;
+  text-transform:uppercase;
+  border-bottom:1.5px solid var(--divider);
+  padding-bottom:5px;margin-bottom:12px;
+  display:flex;align-items:center;gap:6px;
+}
+.m-heading .slash{color:var(--teal);}
+
+.profile-text{
+  font-size:10.5px;line-height:1.75;
+  color:var(--body);margin-bottom:10px;
+}
+
+.metrics{display:flex;gap:0;margin-bottom:4px;}
+.metric{
+  flex:1;text-align:center;
+  border-right:1px solid var(--divider);
+  padding:6px 4px;
+}
+.metric:last-child{border-right:none;}
+.metric-val{font-family:'JetBrains Mono',monospace;font-size:15px;font-weight:700;color:var(--teal);}
+.metric-label{font-family:'JetBrains Mono',monospace;font-size:7.5px;color:var(--mid);margin-top:1px;}
+
+/* Experience */
+.exp-block{margin-bottom:14px;padding-bottom:12px;border-bottom:1px dashed #e8ecf0;}
+.exp-block:last-child{border-bottom:none;margin-bottom:0;}
+
+.exp-title{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;font-weight:700;color:var(--body);
+  margin-bottom:2px;
+}
+.exp-meta{
+  display:flex;align-items:center;gap:6px;
+  margin-bottom:5px;flex-wrap:wrap;
+}
+.exp-company{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;color:var(--teal);}
+.exp-sep{color:var(--divider);font-size:10px;}
+.exp-period{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--mid);font-style:italic;}
+.exp-loc{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--mid);font-style:italic;}
+.exp-desc{font-size:9.5px;color:var(--mid);font-style:italic;margin-bottom:5px;line-height:1.5;}
+
+.exp-bullets{list-style:none;margin-bottom:6px;}
+.exp-bullets li{
+  font-size:9.8px;color:var(--body);line-height:1.55;
+  padding-left:14px;position:relative;margin-bottom:3px;
+}
+.exp-bullets li::before{
+  content:'▸';color:var(--teal);
+  position:absolute;left:0;font-size:9px;
+}
+.exp-bullets li strong{font-weight:600;}
+
+.stack-line{
+  font-family:'JetBrains Mono',monospace;
+  font-size:8.5px;color:var(--mid);
+  margin-top:4px;
+}
+.stack-line span{color:var(--teal);}
+
+/* Projects */
+.proj-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.proj-card{border:1px solid var(--divider);border-radius:3px;padding:8px 10px;}
+.proj-name{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;color:var(--teal);margin-bottom:2px;}
+.proj-meta-line{font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--mid);margin-bottom:4px;}
+.proj-desc{font-size:9px;color:var(--body);line-height:1.5;}
+
+/* ── PRINT ───────────────────────────────────────── */
+@media print{
+  html,body{background:#fff;margin:0;padding:0;}
+  .page{
+    width:210mm;height:297mm;
+    margin:0;box-shadow:none;
+    page-break-after:always;
+    overflow:hidden;
+  }
+  .page:last-child{page-break-after:auto;}
+  .sidebar{min-height:297mm;}
+  @page{margin:0;size:A4;}
+}
+
+/* Screen only extras */
+@media screen{
+  .page{box-shadow:0 4px 40px rgba(0,0,0,0.15);margin:20px auto;}
+}
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════
+     PAGE 1
+════════════════════════════════════════════ -->
+<div class="page">
+
+  <!-- SIDEBAR P1 -->
+  <div class="sidebar">
+    <div class="name-block">
+      <div class="name-first">Bhuvnesh</div>
+      <div class="name-last">Pattnaik</div>
+      <div class="name-title">Full Stack Engineer<br>&amp; Engineering Leader</div>
+    </div>
+
+    <div class="s-section">
+      <div class="s-heading">Contact</div>
+      <div class="s-item"><span class="dot">📧</span><span><a href="mailto:bhuvnesh.pattnaik@gmail.com" style="color:inherit;text-decoration:none;">bhuvnesh.pattnaik<br>@gmail.com</a></span></div>
+      <div class="s-item"><span class="dot">📱</span><span>+44 7351222837</span></div>
+      <div class="s-item"><span class="dot">📍</span><span>Glasgow, UK 🇬🇧</span></div>
+      <div class="s-item"><span class="dot">🔗</span><span><a href="https://www.linkedin.com/in/bhuvneshpattnaik/" target="_blank" style="color:#4EC9B0;text-decoration:none;">linkedin.com/in/<br>bhuvneshpattnaik</a></span></div>
+      <div class="s-item"><span class="dot">🌐</span><span><a href="https://bhuvneshpattnaik.github.io" target="_blank" style="color:#4EC9B0;text-decoration:none;">bhuvneshpattnaik<br>.github.io</a></span></div>
+    </div>
+
+    <div class="s-section">
+      <div class="s-heading">Status</div>
+      <div class="s-item"><span class="arrow">▸</span>Open to Work</div>
+      <div class="s-item"><span class="arrow">▸</span>UK Eligible</div>
+      <div class="s-item"><span class="arrow">▸</span>No Sponsorship Required</div>
+      <div class="s-item"><span class="arrow">▸</span>Hybrid / Remote OK</div>
+    </div>
+
+    <div class="s-section">
+      <div class="s-heading">Core Stack</div>
+      <div class="s-skill">► Java / Spring Boot</div>
+      <div class="s-skill">► Node.js / Express.js</div>
+      <div class="s-skill">► ReactJS / Vue.js</div>
+      <div class="s-skill">► React Native</div>
+      <div class="s-skill">► MySQL / MongoDB / Redis</div>
+      <div class="s-skill">► PHP / CodeIgniter</div>
+      <div class="s-skill">► Apache Kafka / RabbitMQ</div>
+    </div>
+
+    <div class="s-section">
+      <div class="s-heading">Infra &amp; DevOps</div>
+      <div class="s-skill">☁ AWS (EC2, S3, SQS, RDS)</div>
+      <div class="s-skill">☁ Google Cloud (GCP)</div>
+      <div class="s-skill">🐳 Docker · Jenkins</div>
+      <div class="s-skill">⚙ CI/CD · Bitbucket / Git</div>
+      <div class="s-skill">🔍 Elastic DB · SonarQube</div>
+      <div class="s-skill">📊 Firebase · Apigee</div>
+    </div>
+
+    <div class="s-section">
+      <div class="s-heading">AI Tools</div>
+      <div class="s-skill yellow">★ Claude AI</div>
+      <div class="s-skill yellow">★ Cursor AI / Windsurf</div>
+      <div class="s-skill yellow">★ GitHub Copilot</div>
+      <div class="s-skill yellow">★ ChatGPT / Gemini AI</div>
+    </div>
+
+    <div class="s-section">
+      <div class="s-heading">Expertise</div>
+      <div class="bar-row">
+        <div class="bar-label"><span>AI Tools</span><span>92%</span></div>
+        <div class="bar-track"><div class="bar-fill" style="width:92%"></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label"><span>Full Stack</span><span>90%</span></div>
+        <div class="bar-track"><div class="bar-fill" style="width:90%"></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label"><span>Backend</span><span>88%</span></div>
+        <div class="bar-track"><div class="bar-fill" style="width:88%"></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label"><span>AWS / Cloud</span><span>82%</span></div>
+        <div class="bar-track"><div class="bar-fill" style="width:82%"></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label"><span>Leadership</span><span>78%</span></div>
+        <div class="bar-track"><div class="bar-fill" style="width:78%"></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label"><span>Frontend</span><span>75%</span></div>
+        <div class="bar-track"><div class="bar-fill" style="width:75%"></div></div>
+      </div>
+    </div>
+
+    <div class="s-section">
+      <div class="s-heading">Leadership</div>
+      <div class="s-item"><span class="arrow">▸</span>Team of 9+ built from scratch</div>
+      <div class="s-item"><span class="arrow">▸</span>Reported directly to CTO</div>
+      <div class="s-item"><span class="arrow">▸</span>Hiring &amp; onboarding</div>
+      <div class="s-item"><span class="arrow">▸</span>Sprint planning &amp; OKRs</div>
+      <div class="s-item"><span class="arrow">▸</span>Architecture ownership</div>
+      <div class="s-item"><span class="arrow">▸</span>Code review standards</div>
+      <div class="s-item"><span class="arrow">▸</span>Agile / Scrum</div>
+    </div>
+
+
+  </div>
+
+  <!-- MAIN P1 -->
+  <div class="main">
+
+    <div class="m-section">
+      <div class="m-heading"><span class="slash">//</span> Profile</div>
+      <p class="profile-text">Senior Full Stack Engineer and Engineering Leader with 8+ years of experience designing, building and scaling high-throughput production platforms. Proven track record of leading cross-functional teams from scratch — hiring, mentoring and managing developers, QA and DevOps engineers. Architected systems that process 15,000+ orders per day, led platforms from zero to launch, and drove 3× business growth post-COVID. Deeply hands-on with AI-assisted development tools including Claude AI and Cursor AI. Fully eligible to work in the UK — no sponsorship required.</p>
+      <div class="metrics">
+        <div class="metric"><div class="metric-val">8+</div><div class="metric-label">Years Exp</div></div>
+        <div class="metric"><div class="metric-val">15K+</div><div class="metric-label">Orders/Day</div></div>
+        <div class="metric"><div class="metric-val">9+</div><div class="metric-label">Team Led</div></div>
+        <div class="metric"><div class="metric-val">3×</div><div class="metric-label">Growth</div></div>
+        <div class="metric"><div class="metric-val">2K+</div><div class="metric-label">Users Launched</div></div>
+      </div>
+    </div>
+
+    <div class="m-section">
+      <div class="m-heading"><span class="slash">//</span> Work Experience</div>
+
+      <!-- Hotel Trader -->
+      <div class="exp-block">
+        <div class="exp-title">Senior Software Engineer</div>
+        <div class="exp-meta">
+          <span class="exp-company">Hotel Trader</span>
+          <span class="exp-sep">|</span>
+          <span class="exp-period">Feb 2024 – Present</span>
+          <span class="exp-sep">·</span>
+          <span class="exp-loc">Remote</span>
+        </div>
+        <div class="exp-desc">B2B API platform bridging travel agencies and hotels, serving live ARI (Availability, Rates, Inventory) data in real time to agency partners worldwide.</div>
+        <ul class="exp-bullets">
+          <li>Lead end-to-end development of hotel API integration platform, serving multiple travel agency clients with high-availability ARI data feeds</li>
+          <li>Architect and manage CI/CD pipelines via Jenkins on AWS, automating deployments and reducing manual release effort significantly</li>
+          <li>Own database management across MySQL &amp; MongoDB — query optimisation, cron scheduling and capacity planning</li>
+          <li>Structured logging and production observability via Elastic DB and SonarQube, improving incident response time</li>
+          <li>Use <strong>Claude AI &amp; Cursor AI</strong> daily — accelerating development cycles and maintaining high code quality</li>
+        </ul>
+        <div class="stack-line">Stack: <span>Java · Spring Boot · ReactJS · MySQL · MongoDB · AWS · Jenkins · Elastic DB · Cursor AI</span></div>
+      </div>
+
+      <!-- Freelance -->
+      <div class="exp-block">
+        <div class="exp-title">Software Developer / Team Lead</div>
+        <div class="exp-meta">
+          <span class="exp-company">Freelance</span>
+          <span class="exp-sep">|</span>
+          <span class="exp-period">Sep 2023 – Feb 2024</span>
+          <span class="exp-sep">·</span>
+          <span class="exp-loc">New Delhi, India</span>
+        </div>
+        <div class="exp-desc">Contracted as lead engineer on Project Astram — a corporate infrastructure management platform — delivered independently on contract.</div>
+        <ul class="exp-bullets">
+          <li>Managed complete project lifecycle from requirements and architecture through to deployment and client handover</li>
+          <li>Led team of 4 developers — sprint planning, task assignment, code reviews and delivery management</li>
+          <li>Designed multi-tenant infrastructure management system with RBAC and real-time dashboards on AWS</li>
+        </ul>
+        <div class="stack-line">Stack: <span>Node.js · ReactJS · Express.js · MongoDB · MySQL · PHP · AWS · Docker</span></div>
+      </div>
+
+      <!-- Shypmax AEM -->
+      <div class="exp-block">
+        <div class="exp-title">Associate Engineering Manager</div>
+        <div class="exp-meta">
+          <span class="exp-company">Shypmax (Crossborder Logistech)</span>
+          <span class="exp-sep">|</span>
+          <span class="exp-period">Apr 2022 – Sep 2023</span>
+          <span class="exp-sep">·</span>
+          <span class="exp-loc">Gurugram, India</span>
+        </div>
+        <div class="exp-desc">Led engineering across three products — Shypmax-Club (new build), Shypmax B2B international and Shyplite domestic — reporting directly to the CTO.</div>
+        <ul class="exp-bullets">
+          <li>Architected and delivered Shypmax-Club (e-commerce + C2C delivery) from zero to launch, reaching <strong>2,000+ active users</strong> on App Store &amp; Play Store</li>
+          <li>Maintained oversight of Shypmax B2B international platform processing <strong>5,000+ cross-border orders/day</strong></li>
+          <li>Drove <strong>3× business growth</strong> post-COVID through platform scaling, reliability improvements and rapid feature delivery</li>
+          <li>Delivered significant AWS infrastructure cost reduction through right-sizing, API-level optimisation and DevOps automation</li>
+          <li>Established CI/CD pipelines, code review standards, branching strategy and sprint ceremonies from scratch</li>
+          <li>Hired and scaled engineering team from zero to <strong>9+</strong> across Dev, QA and DevOps — conducting interviews, setting OKRs and managing performance</li>
+        </ul>
+        <div class="stack-line">Stack: <span>Node.js · React Native · MySQL · Firebase · AWS · RabbitMQ · Apache Kafka</span></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     PAGE 2
+════════════════════════════════════════════ -->
+<div class="page">
+
+  <!-- SIDEBAR P2 -->
+  <div class="sidebar">
+
+    <div class="s-section" style="margin-top:0;">
+      <div class="s-heading">Key Numbers</div>
+      <div class="stat-row"><div class="stat-val">8+</div><div class="stat-label">Years of Experience</div></div>
+      <div class="stat-row"><div class="stat-val">15K+</div><div class="stat-label">Orders Scaled / Day</div></div>
+      <div class="stat-row"><div class="stat-val">9+</div><div class="stat-label">Engineers Led</div></div>
+      <div class="stat-row"><div class="stat-val">3×</div><div class="stat-label">Business Growth (YoY)</div></div>
+    </div>
+
+    <div class="s-section">
+      <div class="s-heading">Education</div>
+      <div class="s-item" style="color:#fff;font-weight:600;">B.Tech. Computer Science</div>
+      <div class="s-item">Maharshi Dayanand Univ.</div>
+      <div class="s-item">2013 – 2017</div>
+      <div style="margin-top:8px;">
+        <div class="s-item">12th · Mathematics · CBSE</div>
+        <div class="s-item">10th · Mathematics · CBSE</div>
+      </div>
+    </div>
+
+    <div class="s-section">
+      <div class="s-heading">Preferences</div>
+      <div class="bar-row">
+        <div class="bar-label"><span>Lead / Arch</span><span>80%</span></div>
+        <div class="bar-track"><div class="bar-fill" style="width:80%"></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label"><span>Full Stack</span><span>80%</span></div>
+        <div class="bar-track"><div class="bar-fill" style="width:80%"></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label"><span>Back End</span><span>70%</span></div>
+        <div class="bar-track"><div class="bar-fill" style="width:70%"></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label"><span>Front End</span><span>60%</span></div>
+        <div class="bar-track"><div class="bar-fill" style="width:60%"></div></div>
+      </div>
+    </div>
+
+    <div class="s-section">
+      <div class="s-heading">Interests</div>
+      <div class="s-item"><span class="arrow">▸</span>AI-powered development</div>
+      <div class="s-item"><span class="arrow">▸</span>Distributed systems</div>
+      <div class="s-item"><span class="arrow">▸</span>Platform engineering</div>
+      <div class="s-item"><span class="arrow">▸</span>Developer tooling &amp; DX</div>
+      <div class="s-item"><span class="arrow">▸</span>Open source contribution</div>
+    </div>
+
+    <div class="s-section">
+      <div class="s-heading">Approach</div>
+      <div class="s-item"><span class="arrow">▸</span>Ship fast, iterate faster</div>
+      <div class="s-item"><span class="arrow">▸</span>Code quality over speed</div>
+      <div class="s-item"><span class="arrow">▸</span>Always leave it better</div>
+      <div class="s-item"><span class="arrow">▸</span>Mentor &amp; grow the team</div>
+      <div class="s-item"><span class="arrow">▸</span>Own it end to end</div>
+    </div>
+
+    <div class="s-section">
+      <div class="s-heading">Languages</div>
+      <div class="s-item"><span class="arrow">▸</span>English — Fluent</div>
+      <div class="s-item"><span class="arrow">▸</span>Hindi — Native</div>
+    </div>
+
+    <div class="s-section">
+      <div class="s-heading">Personal Projects</div>
+      <div class="s-item"><span class="arrow">▸</span><span><strong style="color:var(--teal)">FinTrack</strong> — Finance app<br>fintrack.light2glow.com</span></div>
+      <div class="s-item"><span class="arrow">▸</span><span><strong style="color:var(--teal)">Splitzy</strong> — Expense splitter<br>splitzy.light2glow.com</span></div>
+      <div class="s-item"><span class="arrow">▸</span><span><strong style="color:var(--teal)">Dieters.fit</strong> — Diet platform<br>Node.js · Nest.js · GCP</span></div>
+      <div class="s-item"><span class="arrow">▸</span><span><strong style="color:var(--teal)">NovelActing</strong> — Android app<br>Android · Firebase</span></div>
+    </div>
+
+  </div>
+
+  <!-- MAIN P2 -->
+  <div class="main">
+
+    <div class="m-section">
+      <div class="m-heading"><span class="slash">//</span> Work Experience <span style="font-size:9px;color:var(--mid);font-weight:400;letter-spacing:0;">(continued)</span></div>
+
+      <!-- Shyplite -->
+      <div class="exp-block">
+        <div class="exp-title">Software Developer</div>
+        <div class="exp-meta">
+          <span class="exp-company">Shypmax (previously Shyplite)</span>
+          <span class="exp-sep">|</span>
+          <span class="exp-period">Mar 2019 – Mar 2022</span>
+          <span class="exp-sep">·</span>
+          <span class="exp-loc">New Delhi, India</span>
+        </div>
+        <div class="exp-desc">Core backend engineer on Shyplite, a domestic B2B logistics aggregator processing 15,000+ shipment orders per day. Took full ownership of architectural improvements and scaling initiatives over three years.</div>
+        <ul class="exp-bullets">
+          <li>Designed and implemented architectural changes that scaled the platform to <strong>15,000+ daily orders</strong> without performance degradation</li>
+          <li>Built and owned core modules: Booking Engine, Finance &amp; Billing, Real-Time Tracking, Serviceability, Warehouse Management and SKU Management</li>
+          <li>Delivered full-stack features from DB schema design → Node.js backend APIs → Vue.js frontend interfaces</li>
+          <li>Managed AWS infrastructure (SQS, Redis, RDS) ensuring high availability and fault tolerance under peak load</li>
+          <li>Contributed to the engineering effort supporting the company's <strong>3× post-COVID growth trajectory</strong></li>
+        </ul>
+        <div class="stack-line">Stack: <span>Node.js · Vue.js · MySQL · Redis · AWS SQS · AWS RDS · Git</span></div>
+      </div>
+
+      <!-- Daphnis Lead -->
+      <div class="exp-block">
+        <div class="exp-title">Engineering Team Lead</div>
+        <div class="exp-meta">
+          <span class="exp-company">Daphnis Labs</span>
+          <span class="exp-sep">|</span>
+          <span class="exp-period">Feb 2018 – Jan 2019</span>
+          <span class="exp-sep">·</span>
+          <span class="exp-loc">New Delhi, India</span>
+        </div>
+        <div class="exp-desc">Led a team of 4–5 engineers across 4+ simultaneous client projects.</div>
+        <ul class="exp-bullets">
+          <li>Managed team of 4–5 engineers — task assignment, code review and delivery management across parallel workstreams</li>
+          <li>Key projects: Garniche (PHP/AWS), MyScoot (Node.js), Meedmi (Android/PHP)</li>
+        </ul>
+        <div class="stack-line">Stack: <span>PHP · Node.js · Android · MySQL · AWS · CodeIgniter</span></div>
+      </div>
+
+      <!-- Daphnis Dev + Intern -->
+      <div class="exp-block">
+        <div class="exp-title">Software Developer → Engineer Intern</div>
+        <div class="exp-meta">
+          <span class="exp-company">Daphnis Labs</span>
+          <span class="exp-sep">|</span>
+          <span class="exp-period">Feb 2017 – Feb 2018</span>
+          <span class="exp-sep">·</span>
+          <span class="exp-loc">New Delhi, India</span>
+        </div>
+        <div class="exp-desc">Started as Android intern, rapidly expanded into Node.js and PHP backend within 6 months.</div>
+        <ul class="exp-bullets">
+          <li>Delivered backend and mobile development across Node.js, PHP and Android stacks</li>
+          <li>Key projects: Perb (Node.js/MongoDB/iOS), Denticiti (Node.js/Android), Gotcha (Unity/C#)</li>
+          <li>Began career on FeeOnTime, TheHatke and Parking apps — building foundational REST API and mobile skills</li>
+        </ul>
+        <div class="stack-line">Stack: <span>Node.js · PHP · MongoDB · Android · iOS · Unity C# · Git</span></div>
+      </div>
+
+    </div>
+
+    <!-- Personal Projects -->
+    <div class="m-section">
+      <div class="m-heading"><span class="slash">//</span> Personal Projects</div>
+      <div class="proj-grid">
+        <div class="proj-card">
+          <div class="proj-name">⚡ FinTrack</div>
+          <div class="proj-meta-line">Next.js · Firebase · Gemini AI &nbsp;|&nbsp; 3 days · AI-assisted</div>
+          <div class="proj-desc">Personal finance app — income, expenses, budgets, goals &amp; investments. Built in 3 days using AI. Live: <a href="https://fintrack.light2glow.com" target="_blank" style="color:#4EC9B0;text-decoration:none;">fintrack.light2glow.com</a></div>
+        </div>
+        <div class="proj-card">
+          <div class="proj-name">💸 Splitzy</div>
+          <div class="proj-meta-line">Next.js · Firebase · Gemini AI &nbsp;|&nbsp; 1 week · AI-assisted</div>
+          <div class="proj-desc">Expense tracking &amp; bill-splitting for groups with real-time sync. Built in 1 week. Live: <a href="http://splitzy.light2glow.com" target="_blank" style="color:#4EC9B0;text-decoration:none;">splitzy.light2glow.com</a></div>
+        </div>
+        <div class="proj-card">
+          <div class="proj-name">🥗 Dieters.fit</div>
+          <div class="proj-meta-line">Node.js · Nest.js · ReactJS · GCP &nbsp;|&nbsp; 2 years</div>
+          <div class="proj-desc">Mobile app + dietician portal with RBAC, meal planning and progress tracking. Built over 2 years.</div>
+        </div>
+        <div class="proj-card">
+          <div class="proj-name">📚 NovelActing</div>
+          <div class="proj-meta-line">Android · Firebase &nbsp;|&nbsp; 6 months</div>
+          <div class="proj-desc">Android novel reading app with genre categories, offline reading and Firebase real-time content sync.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
